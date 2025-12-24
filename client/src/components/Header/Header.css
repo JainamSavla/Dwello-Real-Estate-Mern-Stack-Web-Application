@@ -1,0 +1,64 @@
+/* Make the navbar logo much larger and always visible */
+.navbar-logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  width: 100px;
+  height: auto;
+  max-height: 56px;
+  object-fit: contain;
+  transition: transform 0.2s;
+  display: block;
+}
+.navbar-logo:hover {
+  transform: scale(1.08) rotate(-2deg);
+}
+.h-wrapper {
+  z-index: 99;
+  position: sticky;
+  top: 0;
+  background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
+  box-shadow: 0 2px 12px rgba(30, 60, 114, 0.12);
+}
+.h-container {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: #fff;
+  justify-content: space-between;
+}
+
+.h-menu {
+  gap: 2rem;
+}
+.h-menu > *:hover {
+  cursor: pointer;
+  color: #ffb347;
+  transition: color 0.2s;
+}
+.menu-icon {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+  .h-menu {
+    color: #1e3c72;
+    position: absolute;
+    gap: 2rem;
+    font-weight: 500;
+    flex-direction: column;
+    right: 4rem;
+    top: 3rem;
+    background: #fff;
+    display: flex;
+    border-radius: 10px;
+    transition: all 200ms ease;
+    align-items: flex-start;
+    padding: 3rem;
+    box-shadow: 0px 4px 12px rgba(30, 60, 114, 0.08);
+  }
+}
