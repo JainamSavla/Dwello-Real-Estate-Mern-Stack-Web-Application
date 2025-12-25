@@ -1,8 +1,11 @@
 import "./Hero.css";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="hero-wrapper">
       <div className="paddings innerWidth flexCenter hero-container">
@@ -32,7 +35,18 @@ const Hero = () => {
             <span>Forget all difficulties in finding a residence for you</span>
           </div>
 
-          <SearchBar />
+          <div 
+            className="flexCenter search-bar"
+            onClick={() => navigate("/properties")}
+            style={{ cursor: "pointer" }}
+          >
+            <input
+              placeholder="Search by title/city/country..."
+              type="text"
+              readOnly
+            />
+            <button className="button">Search</button>
+          </div>
 
           <div className="flexCenter stats">
             <div className="flexColCenter stat">
