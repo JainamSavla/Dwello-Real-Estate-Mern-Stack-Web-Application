@@ -35,7 +35,7 @@ const Hero = () => {
             <span>Forget all difficulties in finding a residence for you</span>
           </div>
 
-          <div 
+          <div
             className="flexCenter search-bar"
             onClick={() => navigate("/properties")}
             style={{ cursor: "pointer" }}
