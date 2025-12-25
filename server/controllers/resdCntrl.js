@@ -63,3 +63,35 @@ export const getResidency = asyncHandler(async (req, res) => {
     throw new Error(err.message);
   }
 });
+
+// function to delete a residency
+export const deleteResidency = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const userEmail = req.body.email;
+
+  try {
+    // First check if the residency exists and belongs to the user
+    const residency = await prisma.residency.findUnique({
+      where: { id },
+    });
+
+    if (!residency) {
+      res.status(404);
+      throw new Error("Residency not found");
+    }
+
+    if (residency.userEmail !== userEmail) {
+      res.status(403);
+      throw new Error("You are not authorized to delete this property");
+    }
+
+    // Delete the residency
+    await prisma.residency.delete({
+      where: { id },
+    });
+
+    res.send({ message: "Residency deleted successfully" });
+  } catch (err) {
+    throw new Error(err.message);
+  }
+});

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useMutation, useQuery } from "react-query";
-import { useLocation } from "react-router-dom";
-import { getProperty, removeBooking } from "../../utils/api";
+import { useLocation, useNavigate } from "react-router-dom";
+import { getProperty, removeBooking, deleteResidency } from "../../utils/api";
 import { PuffLoader } from "react-spinners";
 import { AiFillHeart } from "react-icons/ai";
 import "./Property.css";
@@ -20,6 +20,7 @@ import Heart from "../../components/Heart/Heart";
 const Property = () => {
   const { pathname } = useLocation();
   const id = pathname.split("/").slice(-1)[0];
+  const navigate = useNavigate();
   const { data, isLoading, isError } = useQuery(["resd", id], () =>
     getProperty(id)
   );
@@ -42,6 +43,19 @@ const Property = () => {
       }));
 
       toast.success("Booking cancelled", { position: "bottom-right" });
+    },
+  });
+
+  const { mutate: handleDeleteProperty, isLoading: deleting } = useMutation({
+    mutationFn: () => deleteResidency(id, user?.email, token),
+    onSuccess: () => {
+      toast.success("Property deleted successfully", { position: "bottom-right" });
+      navigate("/properties");
+    },
+    onError: (error) => {
+      toast.error(error?.response?.data?.message || "Failed to delete property", {
+        position: "bottom-right",
+      });
     },
   });
 
@@ -124,6 +138,24 @@ const Property = () => {
                 {data?.country}
               </span>
             </div>
+
+            {/* delete button - only show for property owner */}
+            {user?.email === data?.userEmail && (
+              <Button
+                variant="filled"
+                color="red"
+                w={"100%"}
+                onClick={() => {
+                  if (window.confirm("Are you sure you want to delete this property?")) {
+                    handleDeleteProperty();
+                  }
+                }}
+                disabled={deleting}
+                style={{ marginTop: "1rem" }}
+              >
+                {deleting ? "Deleting..." : "Delete Property"}
+              </Button>
+            )}
 
             {/* booking button */}
             {bookings?.map((booking) => booking.id).includes(id) ? (
