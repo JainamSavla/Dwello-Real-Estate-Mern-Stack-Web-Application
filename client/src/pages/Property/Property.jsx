@@ -49,13 +49,18 @@ const Property = () => {
   const { mutate: handleDeleteProperty, isLoading: deleting } = useMutation({
     mutationFn: () => deleteResidency(id, user?.email, token),
     onSuccess: () => {
-      toast.success("Property deleted successfully", { position: "bottom-right" });
+      toast.success("Property deleted successfully", {
+        position: "bottom-right",
+      });
       navigate("/properties");
     },
     onError: (error) => {
-      toast.error(error?.response?.data?.message || "Failed to delete property", {
-        position: "bottom-right",
-      });
+      toast.error(
+        error?.response?.data?.message || "Failed to delete property",
+        {
+          position: "bottom-right",
+        }
+      );
     },
   });
 
@@ -84,7 +89,7 @@ const Property = () => {
       <div className="flexColStart paddings innerWidth property-container">
         {/* like button */}
         <div className="like">
-          <Heart id={id}/>
+          <Heart id={id} />
         </div>
 
         {/* image */}
@@ -133,9 +138,7 @@ const Property = () => {
             <div className="flexStart" style={{ gap: "1rem" }}>
               <MdLocationPin size={25} />
               <span className="secondaryText">
-                {data?.address}{" "}
-                {data?.city}{" "}
-                {data?.country}
+                {data?.address} {data?.city} {data?.country}
               </span>
             </div>
 
@@ -146,7 +149,11 @@ const Property = () => {
                 color="red"
                 w={"100%"}
                 onClick={() => {
-                  if (window.confirm("Are you sure you want to delete this property?")) {
+                  if (
+                    window.confirm(
+                      "Are you sure you want to delete this property?"
+                    )
+                  ) {
                     handleDeleteProperty();
                   }
                 }}
