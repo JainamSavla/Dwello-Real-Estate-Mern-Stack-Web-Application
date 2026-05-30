@@ -12,6 +12,7 @@ A modern, full-stack real estate booking application built with the MERN stack, 
 ## ✨ Features
 
 ### 🏠 Property Management
+
 - **Browse Properties**: Explore a wide variety of real estate listings
 - **Property Details**: View comprehensive property information including images, facilities, and location
 - **Interactive Map**: Visualize property locations with integrated maps
@@ -19,6 +20,7 @@ A modern, full-stack real estate booking application built with the MERN stack, 
 - **Add Property**: Authenticated users can list their own properties
 
 ### 👤 User Features
+
 - **Auth0 Authentication**: Secure login and signup with Auth0
 - **Favorite Properties**: Save properties to your favorites list
 - **Book Visits**: Schedule property viewings
@@ -26,6 +28,7 @@ A modern, full-stack real estate booking application built with the MERN stack, 
 - **Delete Properties**: Property owners can delete their listings
 
 ### 🎨 UI/UX
+
 - **Responsive Design**: Optimized for all devices
 - **Smooth Animations**: Enhanced with Framer Motion
 - **Modern Interface**: Clean and intuitive design with Mantine UI
@@ -34,6 +37,7 @@ A modern, full-stack real estate booking application built with the MERN stack, 
 ## 🛠️ Tech Stack
 
 ### Frontend
+
 - **React.js** - UI library
 - **Vite** - Build tool and dev server
 - **React Router** - Client-side routing
@@ -46,6 +50,7 @@ A modern, full-stack real estate booking application built with the MERN stack, 
 - **Axios** - HTTP client
 
 ### Backend
+
 - **Node.js** - Runtime environment
 - **Express.js** - Web framework
 - **Prisma** - ORM
@@ -54,17 +59,20 @@ A modern, full-stack real estate booking application built with the MERN stack, 
 - **CORS** - Cross-origin resource sharing
 
 ### Deployment
+
 - **Vercel** - Frontend & Backend hosting
 - **MongoDB Atlas** - Cloud database
 
 ## 📦 Installation & Setup
 
 ### Prerequisites
+
 - Node.js (v14 or higher)
 - MongoDB Atlas account
 - Auth0 account
 
 ### Clone Repository
+
 ```bash
 git clone https://github.com/JainamSavla/Dwello-Real-Estate-Mern-Stack-Web-Application.git
 cd Dwello-Real-Estate-Mern-Stack-Web-Application
@@ -73,16 +81,19 @@ cd Dwello-Real-Estate-Mern-Stack-Web-Application
 ### Backend Setup
 
 1. Navigate to server directory:
+
 ```bash
 cd server
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Create `.env` file:
+
 ```env
 PORT=8000
 DATABASE_URL="your_mongodb_connection_string"
@@ -98,11 +109,13 @@ CLIENT_URL=http://localhost:5173
 ```
 
 4. Generate Prisma Client:
+
 ```bash
 npx prisma generate
 ```
 
 5. Start the server:
+
 ```bash
 npm start
 ```
@@ -110,16 +123,19 @@ npm start
 ### Frontend Setup
 
 1. Navigate to client directory:
+
 ```bash
 cd client
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Create `.env` file:
+
 ```env
 VITE_API_URL=http://localhost:8000/api
 VITE_AUTH0_DOMAIN=your_auth0_domain
@@ -129,6 +145,7 @@ VITE_AUTH0_REDIRECT_URI=http://localhost:5173
 ```
 
 4. Start the development server:
+
 ```bash
 npm run dev
 ```
@@ -159,17 +176,20 @@ Dwello-Real-Estate-Booking-Website/
 ## 🔑 Key Features Implementation
 
 ### Authentication Flow
+
 - Integrated Auth0 for secure authentication
 - JWT token-based API protection
 - User registration and profile management
 
 ### Property Operations
+
 - **Create**: Add new property listings with images and details
 - **Read**: Browse and search all properties
 - **Update**: Favorite properties and book visits
 - **Delete**: Property owners can delete their listings
 
 ### Booking System
+
 - Schedule property visits
 - Manage booking history
 - Cancel bookings
@@ -177,6 +197,7 @@ Dwello-Real-Estate-Booking-Website/
 ## 🚀 Deployment
 
 ### Frontend (Vercel)
+
 1. Push code to GitHub
 2. Import project in Vercel
 3. Set root directory to `client`
@@ -184,6 +205,7 @@ Dwello-Real-Estate-Booking-Website/
 5. Deploy
 
 ### Backend (Vercel)
+
 1. Import same repository
 2. Set root directory to `server`
 3. Add environment variables
@@ -192,15 +214,19 @@ Dwello-Real-Estate-Booking-Website/
 ## 📸 Screenshots
 
 ### Home Page
+
 Modern landing page with hero section and property statistics
 
 ### Properties Listing
+
 Browse all available properties with search and filter options
 
 ### Property Details
+
 Detailed view with images, facilities, location map, and booking options
 
 ### User Dashboard
+
 Manage your bookings and favorite properties
 
 ## 🤝 Contributing

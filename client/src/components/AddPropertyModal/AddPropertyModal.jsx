@@ -5,6 +5,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import UploadImage from "../UploadImage/UploadImage";
 import BasicDetails from "../BasicDetails/BasicDetails";
 import Facilities from "../Facilities/Facilities";
+import PaymentStep from "../PaymentStep/PaymentStep";
 
 const AddPropertyModal = ({ opened, setOpened }) => {
   const [active, setActive] = useState(0);
@@ -14,6 +15,8 @@ const AddPropertyModal = ({ opened, setOpened }) => {
     title: "",
     description: "",
     price: 0,
+    rentPrice: 0,
+    listingType: "sale",
     country: "",
     city: "",
     address: "",
@@ -27,7 +30,7 @@ const AddPropertyModal = ({ opened, setOpened }) => {
   });
 
   const nextStep = () => {
-    setActive((current) => (current < 4 ? current + 1 : current));
+    setActive((current) => (current < 5 ? current + 1 : current));
   };
 
   const prevStep = () => {
@@ -72,8 +75,16 @@ const AddPropertyModal = ({ opened, setOpened }) => {
             />
           </Stepper.Step>
 
-          <Stepper.Step>
+          <Stepper.Step label="Facilities" description="Rooms">
             <Facilities
+              prevStep={prevStep}
+              propertyDetails={propertyDetails}
+              setPropertyDetails={setPropertyDetails}
+              nextStep={nextStep}
+            />
+          </Stepper.Step>
+          <Stepper.Step label="Payment" description="Listing fee">
+            <PaymentStep
               prevStep={prevStep}
               propertyDetails={propertyDetails}
               setPropertyDetails={setPropertyDetails}

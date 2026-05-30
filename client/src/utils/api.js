@@ -176,6 +176,47 @@ export const createResidency = async (data, token) => {
   }
 };
 
+export const createListingCheckout = async (token) => {
+  try {
+    const res = await api.post(
+      `/payment/create-checkout-session`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const confirmListingPayment = async (
+  sessionId,
+  propertyDetails,
+  token
+) => {
+  try {
+    const res = await api.post(
+      `/payment/confirm-listing`,
+      {
+        sessionId,
+        propertyDetails,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const deleteResidency = async (id, email, token) => {
   try {
     await api.delete(`/residency/delete/${id}`, {

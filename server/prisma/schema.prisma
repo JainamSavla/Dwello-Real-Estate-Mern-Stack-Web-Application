@@ -22,6 +22,8 @@ model Residency {
     title       String
     description String
     price       Int
+    rentPrice   Int?
+    listingType String?
     address     String
     city        String
     country     String

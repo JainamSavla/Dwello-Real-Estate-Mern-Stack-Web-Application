@@ -24,7 +24,7 @@ const Hero = () => {
               Best Properties
               <br /> with{" "}
               <img
-                src="./logo.png"
+                src="/logo.png"
                 alt="Dwello Logo"
                 style={{ height: "0.9em", verticalAlign: "middle" }}
               />

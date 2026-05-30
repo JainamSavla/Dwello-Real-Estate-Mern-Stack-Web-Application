@@ -98,13 +98,27 @@ const Property = () => {
         <div className="flexCenter property-details">
           {/* left */}
           <div className="flexColStart left">
-            {/* head */}
-            <div className="flexStart head">
-              <span className="primaryText">{data?.title}</span>
-              <span className="orangeText" style={{ fontSize: "1.5rem" }}>
-                $ {data?.price}
-              </span>
-            </div>
+            {(() => {
+              const listingType = data?.listingType || "sale";
+              const priceValue =
+                listingType === "rent" ? data?.rentPrice : data?.price;
+              const priceLabel = listingType === "rent" ? "Rent" : "Price";
+              const typeLabel =
+                listingType === "rent" ? "Rentable flat" : "Selling flat";
+
+              return (
+                <>
+                  <span className="secondaryText">{typeLabel}</span>
+                  <div className="flexStart head">
+                    <span className="primaryText">{data?.title}</span>
+                    <span className="orangeText" style={{ fontSize: "1.5rem" }}>
+                      {priceLabel}: {priceValue}
+                    </span>
+                  </div>
+                </>
+              );
+            })()}
+
 
             {/* facilities */}
             <div className="flexStart facilities">
